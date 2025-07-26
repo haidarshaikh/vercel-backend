@@ -8,7 +8,7 @@ const PORT = 4000;
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://vercel-frontend-sepia.vercel.app/'
+    origin: 'https://vercel-frontend-sepia.vercel.app' 
 }));
 
 app.use('/students', studentRoutes);
