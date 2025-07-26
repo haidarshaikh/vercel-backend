@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:5173' // change this to your frontend domain when deployed
+    origin: 'https://vercel-frontend-sepia.vercel.app/' // change this to your frontend domain when deployed
 }));
 
 app.use('/students', studentRoutes);
