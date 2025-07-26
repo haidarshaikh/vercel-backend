@@ -1,17 +1,19 @@
+// index.js
 import express from 'express';
 import studentRoutes from './routes/studentRoutes.js';
 import marksRoutes from './routes/marksRoutes.js';
-import cors from 'cors'
+import cors from 'cors';
+import serverless from 'serverless-http';
 
 const app = express();
-const PORT = 4000;
 
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: 'http://localhost:5173' // change this to your frontend domain when deployed
 }));
 
 app.use('/students', studentRoutes);
 app.use('/marks', marksRoutes);
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Export the app wrapped in serverless handler
+export const handler = serverless(app);
